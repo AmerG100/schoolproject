@@ -1,0 +1,82 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage1.master.cs" Inherits="MasterPage1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Supermarket</title>
+    <style>
+          body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+    </style>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    
+    
+</head>
+<body topmargin=0>
+ <form id="form1" runat="server">
+ <div>
+  <table>
+   <tr><td>
+     <font color="#006633" size="1">
+      <asp:HyperLink ID="HyperLink1" runat="server" 
+       NavigateUrl="users/adminlogin.aspx?what=logon" >admin</asp:HyperLink>&nbsp
+      <asp:HyperLink ID="HyperLink4" runat="server" 
+       NavigateUrl="users/adminlogin.aspx?what=logoff">logoff admin</asp:HyperLink>
+     </font> &nbsp&nbsp    
+      <asp:Label ID="Label1" runat="server" Text="admin state " 
+      visible ="False" BackColor="#ffee00" Width="300px"/>
+       <asp:Label ID="Label2" runat="server" Text="Login status: " Font-Underline="True"></asp:Label>
+       <asp:Label ID="Label3" runat="server"></asp:Label>
+       <asp:Button ID="Button1" runat="server" ForeColor="Red" OnClick="Button1_Click1" Text="Sign Out"  />
+   </td></tr>
+          <tr><td>&nbsp;</td></tr>
+
+   <tr><td>
+       <asp:Menu ID="MainMenu" runat="server"
+                DataSourceID="SiteMapDataSource" 
+
+                Font-Size   ="1.2em" ItemWrap="True"  MaximumDynamicDisplayLevels="2"
+                StaticEnableDefaultPopOutImage="False" 
+                BackColor="#F7F6F3" DynamicHorizontalOffset="2" Font-Names="Verdana" 
+                ForeColor="#7C6F57" StaticSubMenuIndent="10px"
+                
+                Orientation="Horizontal"     Width="1000"
+                StaticItemFormatString  =" {0}  " 
+                StaticDisplayLevels   ="2"
+              Visible  ="true"
+           >
+        </asp:Menu>  
+        <%--<asp:SiteMapDataSource ID="siteMapDataSource" runat="server" />--%>
+        <asp:SiteMapDataSource ID="siteMapDataSource"  runat="server" SiteMapProvider="web10"/>
+
+
+          <asp:Menu ID="MainMenu2" runat="server" 
+                DataSourceID="SiteMapDataSource2" 
+                               
+                Font-Size="1.0em" ItemWrap="True" MaximumDynamicDisplayLevels="2"
+                StaticEnableDefaultPopOutImage="False" 
+                BackColor="#ffee00" DynamicHorizontalOffset="2" Font-Names="Verdana" 
+                ForeColor="#7C6F57" StaticSubMenuIndent="10px"
+                Orientation="Horizontal" 
+                StaticItemFormatString =" {0} " 
+                StaticDisplayLevels ="2"
+                width=1000     
+              visible="false"
+          >
+            </asp:Menu>  
+              <asp:SiteMapDataSource ID="siteMapDataSource2" runat="server"  SiteMapProvider="web20"/>
+ 
+   </td></tr>
+   <tr><td>
+     <asp:contentplaceholder id="ContentPlaceHolder1" runat="server"/>
+   </td></tr>
+   </table>
+  </div>
+ </form>
+</body>
+</html>
